@@ -3,76 +3,28 @@ body {
 }
 
 #map {
-    height: 520px;
-    width: 1300px;
+    height: 520px; /* Ukuran tetap di laptop */
+    width: 100%; /* Biarkan fleksibel, tapi tidak melebihi batas */
+    max-width: 1300px; /* Tetap maksimal di laptop */
     border: 2px solid #333;
     border-radius: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 5px auto; /* Agar tetap center */
 }
 
-#searchContainer {
-    padding: 10px;
-    background: white;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    display: flex;
-    gap: 10px;
-}
+/* Responsif khusus HP */
+@media (max-width: 768px) {
+    #map {
+        height: 60vh; /* Tambah tinggi di HP supaya tetap besar */
+        width: 100%; /* Lebarkan agar pas layar HP */
+    }
 
-#searchContainer input, #searchContainer button {
-    padding: 5px;
-    font-size: 14px;
-}
+    #searchContainer {
+        flex-direction: column; /* Input & button berbaris ke bawah */
+        align-items: center;
+    }
 
-/* Dropdown Menu Styles */
-.nav .dropdown {
-    position: relative;
-}
-
-.nav .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #fff;
-    min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    z-index: 1000;
-    border-radius: 4px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-.nav .dropdown-menu li {
-    padding: 0;
-    margin: 0;
-}
-
-.nav .dropdown-menu li a {
-    display: block;
-    padding: 10px 20px;
-    color: #2a2a2a;
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-.nav .dropdown-menu li a:hover {
-    background-color: #f5f5f5;
-    color: #2a2a2a;
-}
-
-.nav .dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-/* Dropdown arrow indicator */
-.nav .dropdown-toggle::after {
-    content: "▼";
-    font-size: 10px;
-    margin-left: 5px;
-    vertical-align: middle;
+    #searchContainer input, #searchContainer button {
+        width: 100%; /* Agar full di HP */
+        font-size: 16px;
+    }
 }
